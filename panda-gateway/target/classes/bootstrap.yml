@@ -1,0 +1,57 @@
+server:
+  port: 2004
+spring:
+  application:
+    name: api-gateway-dynamic
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: panda-config-server
+      fail-fast: false
+      name: ${spring.application.name}
+      label: ${spring.profiles.active}
+      profile: ${spring.profiles.active}
+
+ignore:
+  urls:
+  - /**/*.css
+  - /auth/**
+  - /admin/user/mobile/**
+  - /refresh/**
+  - /swagger-ui.html
+  - /swagger-resources/**
+  - /*/v2/api-docs
+  - /webjars/**
+
+swagger:
+  client:
+    - panda-user-service
+    - panda-gen-service
+# 关闭默认路由
+zuul:
+  ignoredServices: '*'
+
+
+---
+spring:
+  profiles: dev
+eureka:
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+---
+spring:
+  profiles: prod
+eureka:
+  instance:
+    ip-address: 193.112.100.103
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://193.112.100.103:8761/eureka/

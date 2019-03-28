@@ -1,0 +1,26 @@
+package com.yukong.panda.common.constants;
+
+/**
+ * @author: yukong
+ * @date: 2018/10/17 09:24
+ * @description:
+ */
+public interface UserConstants {
+
+    /**
+     * jwt中 用户id的key
+     */
+    String USER_ID = "userId";
+
+
+    /**
+     * jwt中 用户userName的key
+     */
+    String USER_NAME = "userName";
+
+    /**
+     * jwt中 角色集合的key
+     */
+    String AUTHORITIES = "authorities";
+
+}

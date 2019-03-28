@@ -1,0 +1,22 @@
+package $tableInfo.daoPackageName;
+
+import ${tableInfo.packageName}.${tableInfo.className};
+import ${tableInfo.queryPackageName}.${tableInfo.className}Query;
+
+import java.sql.SQLException;
+import java.util.List;
+
+/**
+ * @author $tableInfo.authorName
+ */
+public interface ${tableInfo.className}DAO {
+    Long insert(${tableInfo.className} ${tableInfo.lowerClassName}) throws SQLException;
+
+    ${tableInfo.className} selectById(Long id) throws SQLException;
+
+    Integer updateById(${tableInfo.className} log) throws SQLException;
+
+    List<${tableInfo.className}> listByCondition(${tableInfo.className} condition) throws SQLException;
+
+    ${tableInfo.className}Query queryByPagination(${tableInfo.className}Query query) throws SQLException;
+}

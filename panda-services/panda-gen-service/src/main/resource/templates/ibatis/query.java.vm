@@ -1,0 +1,32 @@
+package $tableInfo.queryPackageName;
+
+import ${tableInfo.packageName}.${tableInfo.className};
+import com.hundsun.emall.query.BasePageQuery;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author $tableInfo.authorName
+ */
+public class ${tableInfo.className}Query extends BasePageQuery {
+
+    private List<${tableInfo.className}> items;
+
+
+    @Override
+    public Map<String, String> getParameters() {
+        return null;
+    }
+
+    public List<${tableInfo.className}> getItems() {
+        return items;
+    }
+
+    public void setItems(List<${tableInfo.className}> items) {
+        this.items = items;
+    }
+
+}

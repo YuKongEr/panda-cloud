@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="${tableInfo.className}_namespace">
+    <resultMap id="${tableInfo.className}ResultMap" class="${tableInfo.packageName}.${tableInfo.className}">
+    #foreach($column in $tableInfo.columnInfo)
+            <result property="$!{column.attrName}" column="${column.columnName}"/>
+    #end
+    </resultMap>
+
+    <insert id="insert" parameterClass="${tableInfo.packageName}.${tableInfo.className}">
+        INSERT INTO $tableInfo.tableName
+        <!-- 加上prepend=" "自动移除动态SQL中第一个逗号 -->
+        <dynamic open="(" close=")" prepend=" ">
+            #foreach($field in $tableInfo.columnInfo)
+                <isNotNull property="$field.attrName" prepend=",">
+                    $field.columnName
+                </isNotNull>
+            #end
+        </dynamic>
+        <dynamic prepend=" VALUES " open="(" close=")">
+            #foreach($field in $tableInfo.columnInfo)
+                <isNotNull property="$field.attrName" prepend=",">
+                    #${field.attrName}#
+                </isNotNull>
+            #end
+        </dynamic>
+        <selectKey resultClass="java.lang.Long" type="post" keyProperty="id">
+            SELECT LAST_INSERT_ID() as VALUE
+        </selectKey>
+    </insert>
+    #if($tableInfo.tableInfo.pk)
+    <select id="selectById" parameterClass="java.lang.Long" resultMap="${tableInfo.className}ResultMap">
+        SELECT * FROM $tableInfo.tableName
+        WHERE $tableInfo.pk.columnName=#$tableInfo.pk.attrName#
+    </select>
+    #end
+#if($tableInfo.tableInfo.pk)
+    <update id="updateById" parameterClass="${tableInfo.packageName}.${tableInfo.className}">
+        UPDATE $tableInfo.tableName
+        <dynamic prepend="SET">
+            #foreach($field in $tableInfo.columnInfo)
+                #if("$field.attrName"=="$tableInfo.pk.attrName")
+                #else
+                    <isNotEmpty prepend="," property="$field.attrName">
+                        $field.columnName = #$field.attrName#
+                    </isNotEmpty>
+                #end
+            #end
+        </dynamic>
+        WHERE $tableInfo.pk.columnName=#$tableInfo.pk.attrName#
+    </update>
+#end
+
+    <select id="listByCondition" parameterClass="${tableInfo.packageName}.${tableInfo.className}"
+            resultMap="${tableInfo.className}ResultMap">
+        SELECT * FROM ${tableInfo.tableName}
+        <dynamic prepend="where">
+            #foreach($field in $tableInfo.columnInfo)
+                <isNotEmpty prepend="and" property="$field.attrName">
+                    $field.columnName = #$field.attrName#
+                </isNotEmpty>
+            #end
+        </dynamic>
+    </select>
+
+    <sql id="queryWhere">
+        <dynamic prepend="WHERE">
+            #foreach($field in $tableInfo.columnInfo)
+                <isNotEmpty prepend="and" property="$field.attrName">
+                    $field.columnName = #$field.attrName#
+                </isNotEmpty>
+            #end
+        </dynamic>
+    </sql>
+    <select id="countByQuery" parameterClass="${tableInfo.queryPackageName}.${tableInfo.className}Query"
+            resultClass="Integer">
+        SELECT count(*) FROM $tableInfo.tableName
+        <include refid="queryWhere"/>
+    </select>
+
+    <select id="queryByPagination" parameterClass="${tableInfo.queryPackageName}.${tableInfo.className}Query"
+            resultMap="${tableInfo.className}ResultMap">
+        SELECT * FROM $tableInfo.tableName
+        <include refid="queryWhere"/>
+        <isNotEmpty property="mysqlPageFristItem">
+            <isNotEmpty property="pageSize">
+                limit #mysqlPageFristItem#,#pageSize#
+            </isNotEmpty>
+        </isNotEmpty>
+    </select>
+</sqlMap>

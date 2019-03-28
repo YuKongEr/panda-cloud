@@ -1,0 +1,56 @@
+package ${tableInfo.daoPackageName}.impl;
+
+import ${tableInfo.packageName}.${tableInfo.className};
+import ${tableInfo.queryPackageName}.${tableInfo.className}Query;
+import com.hundsun.emall.common.dao.BaseDAO;
+import ${tableInfo.daoPackageName}.${tableInfo.className}DAO;
+import org.springframework.stereotype.Repository;
+
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * @author $tableInfo.authorName
+ */
+@Repository
+public class ${tableInfo.className}DAOImpl extends BaseDAO implements ${tableInfo.className}DAO {
+
+    private String getNamespace() {
+        return "${tableInfo.className}_namespace";
+    }
+
+    @Override
+    public Long insert(${tableInfo.className} ${tableInfo.lowerClassName}) throws SQLException {
+        return (Long) getSqlMapClientTemplate().insert(getNamespace() + ".insert", ${tableInfo.lowerClassName});
+    }
+#if($tableInfo.tableInfo.pk)
+
+    @Override
+    public ${tableInfo.className} selectById(Long id) throws SQLException {
+        return (${tableInfo.className}) getSqlMapClientTemplate().queryForObject(getNamespace() + ".selectById", id);
+    }
+#end
+#if($tableInfo.tableInfo.pk)
+
+    @Override
+    public Integer updateById(${tableInfo.className} ${tableInfo.lowerClassName}) throws SQLException {
+        return getSqlMapClientTemplate().update(getNamespace() + ".updateById", ${tableInfo.lowerClassName});
+    }
+#end
+    @Override
+    public List<${tableInfo.className}> listByCondition(${tableInfo.className} condition) throws SQLException {
+        return getSqlMapClientTemplate().queryForList(getNamespace() + ".listByCondition", condition);
+    }
+
+    @Override
+    public ${tableInfo.className}Query queryByPagination(${tableInfo.className}Query query) throws SQLException {
+        Integer count = (Integer) getSqlMapClientTemplate().queryForObject(getNamespace() + ".countByQuery", query);
+        query.setTotalItem(count);
+        if (count > 0) {
+            query.setItems(getSqlMapClientTemplate().queryForList(getNamespace() + ".queryByPagination", query));
+        }
+        return query;
+    }
+
+}

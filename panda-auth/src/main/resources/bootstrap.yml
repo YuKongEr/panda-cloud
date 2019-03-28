@@ -1,0 +1,48 @@
+server:
+  port: 6868
+spring:
+  application:
+    name: panda-auth
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+        service-id: panda-config-server
+        enabled: true
+      fail-fast: true
+      profile: ${spring.profiles.active}
+      label: ${spring.profiles.active}
+      name: ${spring.application.name}
+ignore:
+  urls:
+  - /token/**
+  - /mobile/**
+  - /**/*.css
+  - /auth/**
+  - /refresh/**
+  - /swagger-ui.html
+  - /swagger-resources/**
+  - /*/v2/api-docs
+  - /webjars/**
+
+---
+spring:
+  profiles: dev
+eureka:
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+---
+spring:
+  profiles: prod
+eureka:
+  instance:
+    ip-address: 193.112.100.103
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://193.112.100.103:8761/eureka/

@@ -1,0 +1,66 @@
+package $tableInfo.serviceApiPackageName;
+
+import ${tableInfo.packageName}.${tableInfo.className};
+import ${tableInfo.queryPackageName}.${tableInfo.className}Query;
+
+import com.hundsun.jresplus.remoting.impl.annotation.Service;
+import com.hundsun.jresplus.remoting.impl.annotation.ServiceModule;
+import com.hundsun.jresplus.remoting.impl.annotation.ServiceParam;
+import java.sql.SQLException;
+import java.util.List;
+
+/**
+ * @author $tableInfo.authorName
+ */
+@ServiceModule
+public interface ${tableInfo.className}Service {
+    /**
+     * 插入数据
+     *
+     * @param $tableInfo.lowerClassName
+     * @return 插入后返回id
+     * @throws SQLException
+     */
+    @Service(functionId = "", desc = "插入")
+    Long insert(@ServiceParam("$tableInfo.lowerClassName") $tableInfo.className $tableInfo.lowerClassName) throws SQLException;
+
+    /**
+     * 根据id更新数据
+     *
+     * @param $tableInfo.lowerClassName
+     * @return 更新条数
+     * @throws SQLException
+     */
+    @Service(functionId = "", desc = "更新")
+    Integer updateById(@ServiceParam("$tableInfo.lowerClassName") $tableInfo.className $tableInfo.lowerClassName) throws SQLException;
+
+    /**
+     * 根据id获取对象
+     *
+     * @param id 对象id
+     * @return 获取到的对象
+     * @throws SQLException
+     */
+    @Service(functionId = "", desc = "根据id获取")
+        ${tableInfo.className} selectById(@ServiceParam("id") Long id) throws SQLException;
+
+    /**
+     * 根据条件获取列表信息
+     *
+     * @param condition 条件属性对象
+     * @return 查询结果列表
+     * @throws SQLException
+     */
+    @Service(functionId = "", desc = "获取列表")
+    List<${tableInfo.className}> listByCondition(@ServiceParam("condition") ${tableInfo.className} condition) throws SQLException;
+
+    /**
+     * 根据条件获取分页信息
+     *
+     * @param query 查询条件
+     * @return 查询结果分页信息
+     * @throws SQLException
+     */
+    @Service(functionId = "", desc = "分页查询")
+        ${tableInfo.className}Query queryPages(@ServiceParam("query") ${tableInfo.className}Query query) throws SQLException;
+}
