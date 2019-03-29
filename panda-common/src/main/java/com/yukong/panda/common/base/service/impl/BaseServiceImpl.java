@@ -23,7 +23,7 @@ public class BaseServiceImpl<K extends BaseMapper<T>, T> extends ServiceImpl<K ,
      */
     @Override
     public IPage<T> pageByQuery(IPage<T> query) {
-        return baseMapper.pageByQuery(query);
+        return  baseMapper.pageByQuery(query);
     }
 
 }

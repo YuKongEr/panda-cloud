@@ -33,7 +33,7 @@
             <if test="remark != '' and remark != null">
                 and   remark  like concat('%',#{remark},'%')
             </if>
-            <if test="del_flag != '' and del_flag != null">
+            <if test="delFlag != null">
                 and  del_flag = #{delFlag}
             </if>
         </where>

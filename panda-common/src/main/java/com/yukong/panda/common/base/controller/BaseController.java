@@ -14,11 +14,15 @@ import java.util.HashMap;
 /**
  * @author yukong
  * @date 2019-01-23 10:24
+ * T:  查询实体类
+ * K： 业务service实现
+ * Q： 查询query实现
+ * P:  主键类型
  */
-public class BaseController<K extends BaseService<T>, T, P extends Serializable> {
+public class BaseController<K extends BaseService<T>,Q extends IPage<T>, T, P extends Serializable> {
 
     @Autowired
-    private K baseService;
+    protected K baseService;
 
 
 
@@ -35,20 +39,20 @@ public class BaseController<K extends BaseService<T>, T, P extends Serializable>
     }
 
     @ApiOperation(value = "删除", httpMethod = "DELETE")
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     public ApiResult<Boolean> delete(@PathVariable("id") P id){
         return new ApiResult<>(baseService.removeById(id));
     }
 
     @ApiOperation(value = "主键查询", notes = "主键查询", httpMethod = "GET")
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ApiResult<T> getSysRoleInfo(@PathVariable("id") Integer id){
         return new ApiResult<>(baseService.getById(id));
     }
 
     @ApiOperation(value = "分页查询", notes = "分页查询", httpMethod = "GET")
     @GetMapping("/page")
-    public ApiResult<IPage<T>> pageByQuery(IPage<T> sysRoleQuery){
+    public ApiResult<IPage<T>> pageByQuery(Q sysRoleQuery){
         return new ApiResult<>(baseService.pageByQuery(sysRoleQuery));
     }
 

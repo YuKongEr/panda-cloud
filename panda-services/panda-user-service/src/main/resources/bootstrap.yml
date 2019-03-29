@@ -46,10 +46,14 @@ mybatis-plus:
     cache-enabled: false
     #配置JdbcTypeForNull, oracle数据库必须配置
     jdbc-type-for-null: 'null'
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 # Logger Config
-logging:
-  level:
-    com.yukong.panda.user.mapper: debug
+#logging:
+#  level:
+#    com.yukong.panda.user.mapper: debug
+#    com.yukong.panda.common.base.mapper: debug
+
+
 
 ---
 spring:
