@@ -6,9 +6,7 @@ import com.yukong.panda.user.model.entity.SysDict;
 import com.yukong.panda.user.model.query.SysDictQuery;
 import com.yukong.panda.user.service.SysDictService;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,9 +19,9 @@ import java.util.List;
 @Api(value = "字典controller", tags = {"系统字典操作接口"})
 public class SysDictController extends BaseController<SysDictService, SysDictQuery, SysDict, Integer> {
 
-    @GetMapping("/top")
-    public R<List<SysDict>> getTopDictList() {
-        return R.ok(baseService.getTopDictList());
+    @GetMapping("/top/name")
+    public R<List<SysDict>> getTopDictList(@RequestParam String name) {
+        return R.ok(baseService.getTopDictListByDesc(name));
     }
 
 }

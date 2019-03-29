@@ -13,8 +13,9 @@ public interface SysDictService extends BaseService<SysDict> {
 
     /**
      * 获取顶级字典列表
+     * @param desc
      * @return 顶级字典列表
      */
-    List<SysDict> getTopDictList();
+    List<SysDict> getTopDictListByDesc(String desc);
 
 }
