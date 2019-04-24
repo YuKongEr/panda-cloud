@@ -440,7 +440,7 @@ CREATE TABLE `sys_oauth_client_details` (
 -- Records of sys_oauth_client_details
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_oauth_client_details` VALUES ('cloud', NULL, '$2a$10$X1HOPGX6ADkQn4rvtk.C4uaz8vF1TdpY2aP/iC.3UKlonvco/k9e.', 'server', 'password,refresh_token,authorization_code', NULL, NULL, NULL, NULL, NULL, 'false');
+INSERT INTO `sys_oauth_client_details` VALUES ('cloud', NULL, '{noop}cloud', 'server', 'password,refresh_token,authorization_code', NULL, NULL, NULL, NULL, NULL, 'false');
 COMMIT;
 
 -- ----------------------------
@@ -655,12 +655,12 @@ CREATE TABLE `sys_user` (
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES (50, 'yukong', '$2a$10$2kV7N5klgIu6F0SbHVFpJuvh/Yzw/lUsHQEKGd1f1E0qcqSn3Bq3y', NULL, '15079155614', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-10-08 16:45:43', '2018-10-09 17:13:18', '0');
-INSERT INTO `sys_user` VALUES (51, 'admin', '$2a$10$2kV7N5klgIu6F0SbHVFpJuvh/Yzw/lUsHQEKGd1f1E0qcqSn3Bq3y', NULL, '13868722913', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-05 16:34:58', '2018-11-05 16:35:14', '0');
-INSERT INTO `sys_user` VALUES (64, 'shimolin', '$2a$10$b.bTEf7KXOKPMgDo4f9qS.CUdtjj0zFCi7FZVIYySFrfrV9UfhJw6', NULL, '18279183791', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-12 21:17:14', NULL, '0');
-INSERT INTO `sys_user` VALUES (67, 'test', '$2a$10$27wf42XNrtCitq7TIpUdiOm9B6SQ/Ciw1bp8jnrSQe4BpgklRb2Sq', NULL, '15079155613', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-01-04 12:48:57', NULL, '0');
-INSERT INTO `sys_user` VALUES (68, 'xzd', '$2a$10$SIkJx.dJ9qCBLuXajtZWaOnAOEZx56IOKp8H4QsmSjPj7YO0LvZXO', NULL, '12345678910', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-01-21 09:42:49', NULL, '0');
-INSERT INTO `sys_user` VALUES (73, 'fanxinglong', '$2a$10$OZHIyn7QDDb6Wmr34SpxK.O5eAzUe4OE0W.B.inL58E925n3oS2d2', NULL, '17701092600', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-01-27 17:01:59', NULL, '0');
+INSERT INTO `sys_user` VALUES (50, 'yukong', '{bcrypt}$2a$10$2kV7N5klgIu6F0SbHVFpJuvh/Yzw/lUsHQEKGd1f1E0qcqSn3Bq3y', NULL, '15079155614', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-10-08 16:45:43', '2018-10-09 17:13:18', '0');
+INSERT INTO `sys_user` VALUES (51, 'admin', '{bcrypt}$2a$10$2kV7N5klgIu6F0SbHVFpJuvh/Yzw/lUsHQEKGd1f1E0qcqSn3Bq3y', NULL, '13868722913', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-05 16:34:58', '2018-11-05 16:35:14', '0');
+INSERT INTO `sys_user` VALUES (64, 'shimolin', '{bcrypt}$2a$10$b.bTEf7KXOKPMgDo4f9qS.CUdtjj0zFCi7FZVIYySFrfrV9UfhJw6', NULL, '18279183791', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-12 21:17:14', NULL, '0');
+INSERT INTO `sys_user` VALUES (67, 'test', '{bcrypt}$2a$10$27wf42XNrtCitq7TIpUdiOm9B6SQ/Ciw1bp8jnrSQe4BpgklRb2Sq', NULL, '15079155613', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-01-04 12:48:57', NULL, '0');
+INSERT INTO `sys_user` VALUES (68, 'xzd', '{bcrypt}$2a$10$SIkJx.dJ9qCBLuXajtZWaOnAOEZx56IOKp8H4QsmSjPj7YO0LvZXO', NULL, '12345678910', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-01-21 09:42:49', NULL, '0');
+INSERT INTO `sys_user` VALUES (73, 'fanxinglong', '{bcrypt}$2a$10$OZHIyn7QDDb6Wmr34SpxK.O5eAzUe4OE0W.B.inL58E925n3oS2d2', NULL, '17701092600', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-01-27 17:01:59', NULL, '0');
 COMMIT;
 
 -- ----------------------------
