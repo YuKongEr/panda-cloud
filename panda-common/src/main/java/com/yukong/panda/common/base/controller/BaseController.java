@@ -14,15 +14,15 @@ import java.util.HashMap;
 /**
  * @author yukong
  * @date 2019-01-23 10:24
- * T:  查询实体类
- * K： 业务service实现
+ * S： 业务service实现
  * Q： 查询query实现
+ * T:  查询实体类
  * P:  主键类型
  */
-public class BaseController<K extends BaseService<T>,Q extends IPage<T>, T, P extends Serializable> {
+public class BaseController<S extends BaseService<T>,Q extends IPage<T>, T, P extends Serializable> {
 
     @Autowired
-    protected K baseService;
+    protected S baseService;
 
 
 

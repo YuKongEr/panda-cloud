@@ -1,5 +1,6 @@
 package com.yukong.panda.gateway.refresh;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.yukong.panda.gateway.event.RefreshRouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +18,9 @@ public class RefreshController {
     private RefreshRouteService refreshRouteService;
 
     @GetMapping("/refresh")
-    public String refresh() {
+    public R refresh() {
         refreshRouteService.refreshRoute();
-        return "refresh";
+        return R.ok("success");
     }
 
 }

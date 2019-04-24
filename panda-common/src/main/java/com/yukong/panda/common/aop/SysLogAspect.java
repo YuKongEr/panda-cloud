@@ -40,7 +40,7 @@ public class SysLogAspect {
     private RabbitTemplate rabbitTemplate;
 
     @Around("execution(public com.yukong.panda.common.util.ApiResult *(..))")
-    public Object handlerControllerMethod(ProceedingJoinPoint pjp) {
+    public Object handlerControllerMethod(ProceedingJoinPoint pjp) throws Throwable {
         Object result = null;
         Signature signature = pjp.getSignature();
         MethodSignature methodSignature = (MethodSignature)signature;
@@ -75,6 +75,7 @@ public class SysLogAspect {
         } catch (Throwable e) {
             sysLogDTO.setException(UrlUtil.getTrace(e));
             sysLogDTO.setStatus(OperationStatusEnum.FAIL.getCode());
+            throw e;
         }
         // 本次操作用时（毫秒）
         long elapsedTime = System.currentTimeMillis() - startTime;

@@ -45,7 +45,7 @@ public class SysZuulRoute implements Serializable {
     /**
      * 敏感请求头
      */
-    private String sensitiveheadersList;
+    private String sensitiveHeadersList;
     /**
      * 创建时间
      */

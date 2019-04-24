@@ -10,6 +10,7 @@ import org.springframework.cloud.netflix.zuul.filters.SimpleRouteLocator;
 import org.springframework.cloud.netflix.zuul.filters.ZuulProperties;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.*;
@@ -87,12 +88,14 @@ public class DynamicRouteLocator extends SimpleRouteLocator implements Refreshab
                zuulRoute.setRetryable(Objects.equals("0", route.getRetryable()) ? Boolean.FALSE : Boolean.TRUE);
                zuulRoute.setStripPrefix(Objects.equals("0", route.getStripPrefix()) ? Boolean.FALSE : Boolean.TRUE);
                zuulRoute.setUrl(route.getUrl());
-               List<String> sensitiveHeadersList = Arrays.asList(route.getSensitiveheadersList().split(","));
-               if (sensitiveHeadersList != null) {
-                   Set<String> sensitiveHeaderSet = Sets.newHashSet();
-                   sensitiveHeadersList.forEach(sensitiveHeader -> sensitiveHeaderSet.add(sensitiveHeader));
-                   zuulRoute.setSensitiveHeaders(sensitiveHeaderSet);
-                   zuulRoute.setCustomSensitiveHeaders(true);
+               if(!StringUtils.isEmpty(route.getSensitiveHeadersList())) {
+                   List<String> sensitiveHeadersList = Arrays.asList(route.getSensitiveHeadersList().split(","));
+                   if (!CollectionUtils.isEmpty(sensitiveHeadersList)) {
+                       Set<String> sensitiveHeaderSet = Sets.newHashSet();
+                       sensitiveHeadersList.addAll(sensitiveHeaderSet);
+                       zuulRoute.setSensitiveHeaders(sensitiveHeaderSet);
+                       zuulRoute.setCustomSensitiveHeaders(true);
+                   }
                }
            } catch (Exception e) {
                log.error("从数据库加载路由配置异常", e);
