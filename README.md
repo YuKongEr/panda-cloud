@@ -75,6 +75,18 @@
 
 ![gen](https://github.com/YuKongEr/panda-cloud/blob/master/imgs/code.png)
 
+![oauth](https://ws3.sinaimg.cn/large/006tNc79ly1g2duq9urf6j31kl0u0jx9.jpg)
+
+![oauth client配置](https://ws1.sinaimg.cn/large/006tNc79ly1g2dupufykmj31ky0u0n3u.jpg)
+
+
+
+![动态路由](https://ws1.sinaimg.cn/large/006tNc79ly1g2duqr64mhj31kt0u00z3.jpg)
+
+
+
+![动态路由](https://ws1.sinaimg.cn/large/006tNc79ly1g2dur03coxj31l60u07bc.jpg)
+
 - [x] 登录管理
   - [x] 登录
   - [x] 登出
@@ -94,9 +106,10 @@
     - [x] 添加用户
     - [x] 修改用户
     - [x] 分配角色
-  - [ ] 字典管理
-  - [ ] 终端管理
-  - [ ] 令牌管理
+  - [x] 字典管理
+  - [x] 终端管理
+  - [x] 令牌管理
+  - [x] 动态路由
 - [x] 日志管理
     - [x] 登录日志
        - [x] 查询日志
