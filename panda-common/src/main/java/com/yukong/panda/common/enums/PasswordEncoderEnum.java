@@ -21,4 +21,7 @@ public enum PasswordEncoderEnum {
         this.value = value;
     }
 
+    public String getValue() {
+        return value;
+    }
 }

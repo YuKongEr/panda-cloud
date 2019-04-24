@@ -3,6 +3,7 @@ package com.yukong.panda.user.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.common.base.Strings;
+import com.yukong.panda.common.enums.PasswordEncoderEnum;
 import com.yukong.panda.common.vo.SysUserVo;
 import com.yukong.panda.user.mapper.SysUserRoleMapper;
 import com.yukong.panda.user.model.dto.SysRoleDTO;
@@ -92,7 +93,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         // 新增用户
         SysUser sysUser = new SysUser();
         BeanUtils.copyProperties(sysUserVo, sysUser);
-        sysUser.setPassword(passwordEncoder.encode(sysUser.getPassword()));
+        sysUser.setPassword(passwordEncoder.encode(PasswordEncoderEnum.BCRYPT.getValue() + sysUser.getPassword()));
         this.save(sysUser);
         sysUserVo.setUserId(sysUser.getUserId());
         // 角色用户信息维护
