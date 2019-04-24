@@ -53,14 +53,9 @@ public class CustomWebResponseExceptionTranslator implements WebResponseExceptio
                 .setException(UrlUtil.getTrace(e));
         rabbitTemplate.convertAndSend(MqQueueNameConstant.SYS_LOG_QUEUE, sysLogDTO);
         log.error(e.getStackTrace().toString());
-        if (!(e instanceof OAuth2Exception)) {
-            return ResponseEntity
-                    .status(HttpStatus.BAD_REQUEST)
-                    .body(new CustomOauth2Exception(e.getMessage()));
-        }
         OAuth2Exception oAuth2Exception = (OAuth2Exception) e;
         return ResponseEntity
-                .status(HttpStatus.NOT_ACCEPTABLE)
+                .status(HttpStatus.OK)
                 .body(new CustomOauth2Exception(oAuth2Exception.getMessage()));
     }
 }
