@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yukong.panda.user.mapper.SysZuulRouteMapper">
+  <resultMap id="BaseResultMap" type="com.yukong.panda.user.model.entity.SysZuulRoute">
+    <!--@mbg.generated generated on Wed Apr 24 11:20:21 CST 2019.-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="service_id" jdbcType="VARCHAR" property="serviceId" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="strip_prefix" jdbcType="CHAR" property="stripPrefix" />
+    <result column="retryable" jdbcType="CHAR" property="retryable" />
+    <result column="enabled" jdbcType="CHAR" property="enabled" />
+    <result column="sensitive_headers_list" jdbcType="VARCHAR" property="sensitiveHeadersList" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 24 11:20:21 CST 2019.-->
+    id, `path`, service_id, url, strip_prefix, retryable, enabled, sensitive_headers_list, 
+    create_time, update_time, del_flag
+  </sql>
+</mapper>
