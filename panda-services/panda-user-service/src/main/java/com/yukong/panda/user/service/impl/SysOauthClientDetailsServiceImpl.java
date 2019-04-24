@@ -1,5 +1,6 @@
 package com.yukong.panda.user.service.impl;
 
+import com.yukong.panda.common.base.service.impl.BaseServiceImpl;
 import com.yukong.panda.user.model.entity.SysOauthClientDetails;
 import com.yukong.panda.user.mapper.SysOauthClientDetailsMapper;
 import com.yukong.panda.user.service.SysOauthClientDetailsService;
@@ -15,6 +16,6 @@ import org.springframework.stereotype.Service;
  * @since 2018-12-13
  */
 @Service
-public class SysOauthClientDetailsServiceImpl extends ServiceImpl<SysOauthClientDetailsMapper, SysOauthClientDetails> implements SysOauthClientDetailsService {
+public class SysOauthClientDetailsServiceImpl extends BaseServiceImpl<SysOauthClientDetailsMapper, SysOauthClientDetails> implements SysOauthClientDetailsService {
 
 }

@@ -1,5 +1,8 @@
 package com.yukong.panda.user.model.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -18,6 +21,7 @@ public class SysOauthClientDetails {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId(value = "client_id", type = IdType.INPUT)
     private String clientId;
 
     private String resourcesIds;
@@ -26,10 +30,19 @@ public class SysOauthClientDetails {
 
     private String scope;
 
+    /**
+     * 授权认证类型
+     */
     private String authorizedGrantTypes;
 
+    /**
+     * 重定向uri
+     */
     private String webServerRedirectUri;
 
+    /**
+     * 权限
+     */
     private String authorities;
 
     private Integer accessTokenValidity;
@@ -38,6 +51,7 @@ public class SysOauthClientDetails {
 
     private String additionInformation;
 
+    @TableField(value = "autoapprove")
     private String autoapprove;
 
 

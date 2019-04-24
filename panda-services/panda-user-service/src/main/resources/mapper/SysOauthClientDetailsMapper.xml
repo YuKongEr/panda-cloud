@@ -2,4 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yukong.panda.user.mapper.SysOauthClientDetailsMapper">
 
+    <!-- 基本resultMap -->
+    <resultMap type="com.yukong.panda.user.model.entity.SysOauthClientDetails" id="sysOauthClientDetailsMap">
+        <id property="clientId" column="client_id"/>
+        <result property="resourcesIds" column="resources_ids"/>
+        <result property="clientSecret" column="client_secret"/>
+        <result property="scope" column="scope"/>
+        <result property="authorizedGrantTypes" column="authorized_grant_types"/>
+        <result property="webServerRedirectUri" column="web_server_redirect_uri"/>
+        <result property="authorities" column="authorities"/>
+        <result property="accessTokenValidity" column="access_token_validity"/>
+        <result property="refreshTokenValidity" column="refresh_token_validity"/>
+        <result property="additionInformation" column="addition_information"/>
+        <result property="autoapprove" column="autoapprove"/>
+    </resultMap>
+
+    <select id="pageByQuery" resultMap="sysOauthClientDetailsMap">
+        select * from sys_oauth_client_details
+        <where >
+
+            <if test="clientId != null and clientId != ''">
+                and   client_id  like concat('%',#{clientId},'%')
+            </if>
+
+            <if test="resourcesIds != null and resourcesIds != ''">
+                and   resources_ids  like concat('%',#{resourcesIds},'%')
+            </if>
+            <if test="authorizedGrantTypes != null and authorizedGrantTypes != ''">
+                and   authorized_grant_types  like concat('%',#{authorizedGrantTypes},'%')
+            </if>
+
+            <if test="scope != null and scope != ''">
+                and   scope  like concat('%',#{scope},'%')
+            </if>
+        </where>
+    </select>
 </mapper>

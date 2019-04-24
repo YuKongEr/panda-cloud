@@ -9,8 +9,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/YuKongEr/config-reps
+          uri: https://github.com/YuKongEr/panda-config
           default-label: ${spring.profiles.active}
+          username: YuKongEr
+          password: x19961010
 ---
 spring:
   profiles: dev

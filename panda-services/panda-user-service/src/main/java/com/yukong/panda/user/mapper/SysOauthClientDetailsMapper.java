@@ -1,7 +1,7 @@
 package com.yukong.panda.user.mapper;
 
+import com.yukong.panda.common.base.mapper.BaseMapper;
 import com.yukong.panda.user.model.entity.SysOauthClientDetails;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * <p>
