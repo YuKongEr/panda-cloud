@@ -54,7 +54,7 @@ public interface SecurityConstants {
    String SPRING_SECURITY_MOBILE_TOKEN_URL = "/mobile/token";
 
 
-   String REDIS_CODE_PREFIX = "panda_code_";
+   String REDIS_CODE_PREFIX = "panda_code:";
 
    Integer REDIS_CODE_EXPIRE = 60;
 

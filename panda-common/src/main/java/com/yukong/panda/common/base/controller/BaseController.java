@@ -46,7 +46,7 @@ public class BaseController<K extends BaseService<T>,Q extends IPage<T>, T, P ex
 
     @ApiOperation(value = "主键查询", notes = "主键查询", httpMethod = "GET")
     @GetMapping("/id/{id}")
-    public ApiResult<T> getSysRoleInfo(@PathVariable("id") Integer id){
+    public ApiResult<T> getSysRoleInfo(@PathVariable("id") P id){
         return new ApiResult<>(baseService.getById(id));
     }
 
