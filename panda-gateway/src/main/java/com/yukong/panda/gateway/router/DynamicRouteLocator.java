@@ -96,6 +96,11 @@ public class DynamicRouteLocator extends SimpleRouteLocator implements Refreshab
                        zuulRoute.setSensitiveHeaders(sensitiveHeaderSet);
                        zuulRoute.setCustomSensitiveHeaders(true);
                    }
+               } else {
+                   // 处理默认情况 不能转发header中的authentication
+                   Set<String> sensitiveHeaderSet = Sets.newHashSet();
+                   zuulRoute.setSensitiveHeaders(sensitiveHeaderSet);
+                   zuulRoute.setCustomSensitiveHeaders(true);
                }
            } catch (Exception e) {
                log.error("从数据库加载路由配置异常", e);

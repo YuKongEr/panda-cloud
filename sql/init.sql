@@ -700,7 +700,7 @@ CREATE TABLE `sys_zuul_route` (
                                 `strip_prefix` char(1) DEFAULT '1' COMMENT '转发去掉前缀',
                                 `retryable` char(1) DEFAULT '1' COMMENT '是否重试',
                                 `enabled` char(1) DEFAULT '1' COMMENT '是否启用',
-                                `sensitiveHeaders_list` varchar(255) DEFAULT NULL COMMENT '敏感请求头',
+                                `sensitive_headers_list` varchar(255) DEFAULT NULL COMMENT '敏感请求头',
                                 `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
                                 `update_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
                                 `del_flag` char(1) DEFAULT '0' COMMENT '删除标识（0-正常,1-删除）',
