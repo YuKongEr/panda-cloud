@@ -21,7 +21,6 @@ management:
     web:
       server:
         auto-time-requests: false
-
 ---
 spring:
   profiles: dev

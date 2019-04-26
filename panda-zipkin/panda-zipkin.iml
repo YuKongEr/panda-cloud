@@ -27,13 +27,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter:2.0.1.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.0.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.0.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.3" level="project" />
-    <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.2.3" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-to-slf4j:2.10.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.3.2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.yaml:snakeyaml:1.19" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-context:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-rsa:1.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.56" level="project" />
@@ -119,11 +112,11 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-messaging:5.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.0.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-autoconfigure-collector-rabbitmq:2.11.8" level="project" />
-    <orderEntry type="library" name="Maven: io.zipkin.zipkin2:zipkin-collector-rabbitmq:2.11.8" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-autoconfigure-collector-rabbitmq:2.12.2" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.zipkin2:zipkin-collector-rabbitmq:2.12.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.0.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-server:2.11.8" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-server:2.12.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-json:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.6" level="project" />
@@ -138,31 +131,49 @@
     <orderEntry type="library" name="Maven: org.slf4j:jul-to-slf4j:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-undertow:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: io.undertow:undertow-core:1.4.25.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.xnio:xnio-api:3.3.8.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jboss.xnio:xnio-nio:3.3.8.Final" level="project" />
     <orderEntry type="library" name="Maven: io.undertow:undertow-servlet:1.4.25.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.spec.javax.annotation:jboss-annotations-api_1.2_spec:1.0.2.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:javax.el:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.xnio:xnio-api:3.7.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.common:wildfly-common:1.3.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.client:wildfly-client-config:1.0.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.threads:jboss-threads:2.3.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.xnio:xnio-nio:3.7.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-actuator:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-actuator-autoconfigure:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-actuator:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: io.micrometer:micrometer-core:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.hdrhistogram:HdrHistogram:2.1.10" level="project" />
     <orderEntry type="library" name="Maven: org.latencyutils:LatencyUtils:2.0.3" level="project" />
-    <orderEntry type="library" name="Maven: io.zipkin.zipkin2:zipkin:2.11.8" level="project" />
-    <orderEntry type="library" name="Maven: io.zipkin.zipkin2:zipkin-collector:2.11.8" level="project" />
-    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-autoconfigure-metrics-prometheus:2.11.8" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.zipkin2:zipkin:2.12.2" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.zipkin2:zipkin-collector:2.12.2" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-autoconfigure-metrics-prometheus:2.12.2" level="project" />
     <orderEntry type="library" name="Maven: io.micrometer:micrometer-registry-prometheus:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: io.prometheus:simpleclient_common:0.4.0" level="project" />
     <orderEntry type="library" name="Maven: io.prometheus:simpleclient:0.4.0" level="project" />
-    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-autoconfigure-ui:2.11.8" level="project" />
-    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-ui:2.11.8" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-autoconfigure-ui:2.12.2" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-ui:2.12.2" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.zipkin2:zipkin-lens:2.12.2" level="project" />
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.11.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-config:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-config-client:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.47" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:2.0.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.0.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.3.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.yaml:snakeyaml:1.19" level="project" />
+    <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:2.7.9" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.0.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.jooq:jooq:3.11.9" level="project" />
+    <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.0" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-autoconfigure-storage-mysql:2.12.2" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.zipkin2:zipkin-storage-mysql-v1:2.12.2" level="project" />
+    <orderEntry type="library" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.2.6" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin-storage-mysql:2.8.4" level="project" />
+    <orderEntry type="library" name="Maven: io.zipkin.java:zipkin:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-sleuth-zipkin:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-sleuth-core:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.13" level="project" />

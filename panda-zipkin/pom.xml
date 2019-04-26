@@ -12,7 +12,9 @@
     <artifactId>panda-zipkin</artifactId>
 
     <properties>
-        <zipkin.version>2.11.8</zipkin.version>
+        <zipkin.version>2.12.2</zipkin.version>
+        <zipkin-storage-mysql.version>2.8.4</zipkin-storage-mysql.version>
+        <jooq.version>3.11.9</jooq.version>
     </properties>
     <dependencies>
         <!-- 注册到eureka-->
@@ -54,5 +56,47 @@
         <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-autoconfigure-storage-mysql</artifactId>
+            <version>${zipkin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-storage-mysql</artifactId>
+            <version>${zipkin-storage-mysql.version}</version>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
