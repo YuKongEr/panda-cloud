@@ -7,7 +7,7 @@
 [![](https://img.shields.io/badge/springcloud-Finchley.SR1-blue.svg
 )](https://github.com/YuKongEr/panda)
 
-
+[开发部署文档地址](http://doc.yukonga.cn)
 
 - 代码生成：提供灵活模板设置，减少重复工作
 - 全面登录：手机验证码登录，用户名密码登录
@@ -46,12 +46,14 @@
 - panda-common 公共模块集合
 - panda-config-server 配置中心服务器
 - panda-gateway 统一网关，提供动态路由 同时也是oauth2的资源服务器
+- panda-zipkin zipkin链路追踪模块
 - panda-service 业务模块集合
   - panda-user-service 统一用户管理模块
   - panda-gen-service 代码生成器模块
+  - panda-message-service 消息处理器模块
     
 
-后续会陆续支持 zipkin服务链路监控  springboot-admin 服务健康监控等
+后续会陆续支持  springboot-admin 服务健康监控等
 ## 进度
 
 ![index](https://github.com/YuKongEr/panda-cloud/blob/master/imgs/index.png)
