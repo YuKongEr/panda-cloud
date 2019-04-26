@@ -34,9 +34,21 @@
         <module>panda-common</module>
         <module>panda-config-server</module>
         <module>panda-gateway</module>
+        <module>panda-zipkin</module>
     </modules>
 
 
+    <dependencies>
+        <!-- 配置服务链路追踪 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>

@@ -2,7 +2,7 @@ server:
   port: 2004
 spring:
   application:
-    name: api-gateway-dynamic
+    name: panda-gateway
   profiles:
     active: dev
   cloud:
@@ -15,24 +15,7 @@ spring:
       label: ${spring.profiles.active}
       profile: ${spring.profiles.active}
 
-ignore:
-  urls:
-  - /**/*.css
-  - /auth/**
-  - /admin/user/mobile/**
-  - /refresh/**
-  - /swagger-ui.html
-  - /swagger-resources/**
-  - /*/v2/api-docs
-  - /webjars/**
 
-swagger:
-  client:
-    - panda-user-service
-    - panda-gen-service
-# 关闭默认路由
-zuul:
-  ignoredServices: '*'
 
 
 ---

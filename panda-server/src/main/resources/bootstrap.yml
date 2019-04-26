@@ -14,6 +14,8 @@ eureka:
   instance:
     preferIpAddress: true
     ip-address: 127.0.0.1
+    # 注册周期心跳 默认30s  这里改成5s  建议生成环境使用默认值30
+    lease-renewal-interval-in-seconds: 5
   client:
     # 是否将自己注册到eureka上去
     register-with-eureka: true
