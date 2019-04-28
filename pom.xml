@@ -26,6 +26,9 @@
         <gson.version>2.8.2</gson.version>
         <spring.serurity.version>5.0.8.RELEASE</spring.serurity.version>
         <qcloudsms.version>1.0.5</qcloudsms.version>
+        <docker.repoistory>registry.cn-shanghai.aliyuncs.com</docker.repoistory>
+        <docker.registry.name>yukong-panda</docker.registry.name>
+
     </properties>
     <modules>
         <module>panda-services</module>
@@ -63,4 +66,48 @@
     </dependencyManagement>
 
 
+    <build>
+        <plugins>
+            <!--新增的docker maven插件-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <!-- 插件绑定phase  即运行 mvn  package 命令会自动构建 docker镜像并且push-->
+               <!-- <executions>
+                    <execution>
+                        <id>build-images</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>-->
+                <!--docker镜像相关的配置信息-->
+                <configuration>
+                    <!-- 私有仓库地址 -->
+                    <registryUrl>${docker.repoistory}</registryUrl>
+                    <!-- push镜像到私有库 -->
+                    <pushImage>true</pushImage>
+                    <!--镜像名，这里用工程名-->
+                    <imageName>${docker.repoistory}/${docker.registry.name}/${project.artifactId}</imageName>
+                    <!--TAG,这里用工程版本号-->
+                    <imageTags>
+                        <imageTag>${project.version}</imageTag>
+                    </imageTags>
+                    <dockerDirectory>${project.basedir}/</dockerDirectory>
+                    <!--构建镜像的配置信息-->
+                    <!-- <resources>
+                         <resource>
+                             <targetPath>/</targetPath>
+                             <directory>${project.build.directory}</directory>
+                             <include>${project.build.finalName}.jar</include>
+                         </resource>
+                     </resources>-->
+                    <!-- 私有库账号密码设置 -->
+                    <serverId>cn_shanghai_aliyun</serverId>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

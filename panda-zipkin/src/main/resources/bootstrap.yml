@@ -21,23 +21,9 @@ management:
     web:
       server:
         auto-time-requests: false
----
-spring:
-  profiles: dev
 eureka:
   instance:
-    ip-address: 127.0.0.1
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
----
-spring:
-  profiles: prod
-eureka:
-  instance:
-    ip-address: 193.112.100.103
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://193.112.100.103:8761/eureka/
+      defaultZone: http://panda-server:8761/eureka/

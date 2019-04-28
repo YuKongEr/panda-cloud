@@ -1,0 +1,130 @@
+version: '3' # 表示该 Docker-Compose 文件使用的是 Version 2 file
+services:
+  panda-server:  # 指定服务名称
+    image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-server:latest
+    restart: always
+    hostname: panda-server
+    container_name: panda-server
+    networks:
+      - cloud
+    ports:    # 指定端口映射
+      - "8761:8761"
+  panda-config-server:
+    image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-config-server:latest
+    restart: always
+    hostname: panda-config-server
+    container_name: panda-config-server
+    volumes:
+      - "./entrypoint.sh:/entrypoint.sh"
+    environment:
+      SLEEP_SECOND: 5
+    tty: true
+    entrypoint: /entrypoint.sh -d panda-server:8761 -c 'java -jar -Djava.security.egd=file:/dev/./urandom /app.jar'
+    ports:    # 指定端口映射
+      - "6671:6671"
+    networks:
+      - cloud
+    depends_on:
+        - panda-server
+  panda-zipkin:
+    image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-zipkin:latest
+    restart: always
+    hostname: panda-zipkin
+    container_name: panda-zipkin
+    volumes:
+      - "./entrypoint.sh:/entrypoint.sh"
+    environment:
+      SLEEP_SECOND: 40
+    tty: true
+    entrypoint: /entrypoint.sh -d panda-config-server:6671 -c 'java -jar -Djava.security.egd=file:/dev/./urandom /app.jar'
+    networks:
+      - cloud
+    ports:    # 指定端口映射
+      - "5001:5001"
+    depends_on:
+        - panda-config-server
+  panda-auth:
+    image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-auth:latest
+    restart: always
+    hostname: panda-auth
+    container_name: panda-auth
+    volumes:
+      - "./entrypoint.sh:/entrypoint.sh"
+    environment:
+      SLEEP_SECOND: 40
+    tty: true
+    entrypoint: /entrypoint.sh -d panda-config-server:6671 -c 'java -jar -Djava.security.egd=file:/dev/./urandom /app.jar'
+    networks:
+      - cloud
+    ports:    # 指定端口映射
+      - "6868:6868"
+    depends_on:
+        - panda-config-server
+  panda-user-service:
+    image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-user-service:latest
+    restart: always
+    hostname: panda-user-service
+    container_name: panda-user-service
+    volumes:
+      - "./entrypoint.sh:/entrypoint.sh"
+    environment:
+      SLEEP_SECOND: 5
+    tty: true
+    entrypoint: /entrypoint.sh -d panda-auth:6868 -c 'java -jar -Djava.security.egd=file:/dev/./urandom /app.jar'
+    networks:
+      - cloud
+    ports:    # 指定端口映射
+      - "9001:9001"
+    depends_on:
+        - panda-config-server
+  panda-gen-service:
+    image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-gen-service:latest
+    restart: always
+    hostname: panda-gen-service
+    container_name: panda-gen-service
+    volumes:
+      - "./entrypoint.sh:/entrypoint.sh"
+    environment:
+      SLEEP_SECOND: 5
+    tty: true
+    entrypoint: /entrypoint.sh -d panda-user-service:9001 -c 'java -jar -Djava.security.egd=file:/dev/./urandom /app.jar'
+    networks:
+      - cloud
+    depends_on:
+        - panda-config-server
+  panda-message-service:
+    image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-message-service:latest
+    restart: always
+    hostname: panda-message-service
+    container_name: panda-message-service
+    volumes:
+      - "./entrypoint.sh:/entrypoint.sh"
+    environment:
+      SLEEP_SECOND: 5
+    tty: true
+    entrypoint: /entrypoint.sh -d panda-user-service:9001 -c 'java -jar -Djava.security.egd=file:/dev/./urandom /app.jar'
+    networks:
+      - cloud
+    depends_on:
+        - panda-config-server
+  panda-gateway:
+    image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-gateway:latest
+    restart: always
+    hostname: panda-gateway
+    container_name: panda-gateway
+    volumes:
+      - "./entrypoint.sh:/entrypoint.sh"
+    environment:
+      SLEEP_SECOND: 10
+    tty: true
+    entrypoint: /entrypoint.sh -d panda-user-service:9001 -c 'java -jar -Djava.security.egd=file:/dev/./urandom /app.jar'
+    ports:
+      - "2004:2004"
+    networks:
+      - cloud
+    depends_on:
+        - panda-config-server
+#指定网络
+networks:
+  cloud:
+    driver: bridge

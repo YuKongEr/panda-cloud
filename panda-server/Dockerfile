@@ -1,4 +1,5 @@
-FROM 193.112.100.103:5000/java:8
+FROM anapsix/alpine-java:8_server-jre_unlimited
+MAINTAINER yukongcode@gmail.com
 VOLUME /tmp
 ADD target/panda-server-0.0.1-SNAPSHOT.jar app.jar
 RUN bash -c 'touch /app.jar'

@@ -1,0 +1,17 @@
+com/yukong/panda/auth/security/UserDetailsImpl.class
+com/yukong/panda/gateway/config/DynamicZuulConfig.class
+com/yukong/panda/gateway/feign/fallback/SysResourceFallback.class
+com/yukong/panda/gateway/event/RefreshRouteService.class
+com/yukong/panda/gateway/feign/SysResourceService.class
+com/yukong/panda/gateway/config/SwaggerClientConfig.class
+com/yukong/panda/gateway/service/impl/SysPermissionServiceImpl.class
+com/yukong/panda/auth/mobile/MobileAuthenticationToken.class
+com/yukong/panda/gateway/service/SysPermissionService.class
+com/yukong/panda/gateway/refresh/RefreshController.class
+com/yukong/panda/gateway/config/DocumentationConfig.class
+com/yukong/panda/gateway/entity/SysZuulRoute.class
+com/yukong/panda/gateway/auth/handler/CustomAccessDeniedHandler.class
+com/yukong/panda/gateway/router/DynamicRouteLocator.class
+com/yukong/panda/gateway/config/OAuth2ResourceServerConfig.class
+com/yukong/panda/gateway/PandaGatewayApplication.class
+com/yukong/panda/gateway/auth/endpoint/AuthExceptionEntryPoint.class

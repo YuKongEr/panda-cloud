@@ -55,34 +55,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!--新增的docker maven插件-->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.12</version>
-                <!--docker镜像相关的配置信息-->
-                <configuration>
-                    <!--镜像名，这里用工程名-->
-                    <imageName>panda/${project.artifactId}</imageName>
-                    <!--TAG,这里用工程版本号-->
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                    </imageTags>
-                    <!--镜像的FROM，使用java官方镜像-->
-                    <baseImage>java:8u111-jdk</baseImage>
-                    <!--该镜像的容器启动后，直接运行spring boot工程-->
-                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-                    <!--构建镜像的配置信息-->
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
-
         </plugins>
     </build>
 
