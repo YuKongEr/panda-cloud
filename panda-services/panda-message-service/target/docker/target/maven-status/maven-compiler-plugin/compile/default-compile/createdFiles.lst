@@ -1,8 +1,0 @@
-com/yukong/panda/message/config/TencentCloudPropteriesConfig.class
-com/yukong/panda/message/listener/SmsMesssageListener.class
-com/yukong/panda/message/handler/sms/SmsTencentCloudMessageHandler.class
-com/yukong/panda/message/handler/MessageHandler.class
-com/yukong/panda/message/handler/email/EmailMessageHandler.class
-com/yukong/panda/message/handler/sms/SmsMessageHandler.class
-com/yukong/panda/message/PandaMessageApplication.class
-com/yukong/panda/message/handler/AbstractMessageHandler.class
