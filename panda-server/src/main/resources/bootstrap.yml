@@ -14,7 +14,7 @@ eureka:
   instance:
     preferIpAddress: true
     # 注册周期心跳 默认30s  这里改成5s  建议生成环境使用默认值30
-    lease-renewal-interval-in-seconds: 5
+    lease-renewal-interval-in-seconds: 30
     hostname: panda-server
   client:
     # 是否将自己注册到eureka上去

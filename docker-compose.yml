@@ -77,36 +77,6 @@ services:
       - "9001:9001"
     depends_on:
         - panda-config-server
-  panda-gen-service:
-    image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-gen-service:latest
-    restart: always
-    hostname: panda-gen-service
-    container_name: panda-gen-service
-    volumes:
-      - "./entrypoint.sh:/entrypoint.sh"
-    environment:
-      SLEEP_SECOND: 5
-    tty: true
-    entrypoint: /entrypoint.sh -d panda-user-service:9001 -c 'java -jar -Djava.security.egd=file:/dev/./urandom /app.jar'
-    networks:
-      - cloud
-    depends_on:
-        - panda-config-server
-  panda-message-service:
-    image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-message-service:latest
-    restart: always
-    hostname: panda-message-service
-    container_name: panda-message-service
-    volumes:
-      - "./entrypoint.sh:/entrypoint.sh"
-    environment:
-      SLEEP_SECOND: 5
-    tty: true
-    entrypoint: /entrypoint.sh -d panda-user-service:9001 -c 'java -jar -Djava.security.egd=file:/dev/./urandom /app.jar'
-    networks:
-      - cloud
-    depends_on:
-        - panda-config-server
   panda-gateway:
     image: registry.cn-shanghai.aliyuncs.com/yukong-panda/panda-gateway:latest
     restart: always

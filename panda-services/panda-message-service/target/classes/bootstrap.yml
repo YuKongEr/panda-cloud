@@ -1,19 +1,23 @@
 server:
-  port: 6868
+  port: 9093
 spring:
   application:
-    name: panda-auth
+    name: panda-message-service
   profiles:
     active: dev
   cloud:
     config:
       discovery:
-        service-id: panda-config-server
         enabled: true
-      fail-fast: true
+        service-id: panda-config-server
       profile: ${spring.profiles.active}
       label: ${spring.profiles.active}
+      fail-fast: true
       name: ${spring.application.name}
+sms:
+  tencent-cloud:
+    appId: 1400163191
+    appKey: 07831d2dacf5878e875199fdb1757c16
 
 eureka:
   instance:
