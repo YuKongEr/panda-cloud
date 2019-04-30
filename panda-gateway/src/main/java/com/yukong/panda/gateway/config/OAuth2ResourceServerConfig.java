@@ -67,6 +67,8 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config =  http.authorizeRequests();
+       // iframe 处理
+        config.and().headers().frameOptions().disable();
         ignoreUrlPropertiesConfig.getUrls().forEach( e ->{
             config.antMatchers(e).permitAll();
         });
