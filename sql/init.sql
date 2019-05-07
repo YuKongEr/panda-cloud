@@ -731,3 +731,9 @@ CREATE TABLE `zipkin_spans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPRESSED;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+
+
+
+UPDATE `cloud`.`sys_resource` SET `name` = '接口文档', `type` = '0', `url` = 'http://localhost:2004/swagger-ui.html', `method` = 'GET', `path` = 'swagger', `permission` = NULL, `color` = NULL, `parent_id` = 8, `icon` = 'doc', `component` = 'views/gen/swagger/index', `sort` = 1, `create_time` = '2018-11-13 17:45:12', `modify_time` = '2019-04-26 03:07:55', `del_flag` = '0' WHERE `id` = 31;
+UPDATE `cloud`.`sys_resource` SET `name` = '链路追踪', `type` = '0', `url` = 'http://localhost:5001', `method` = 'GET', `path` = 'zipkin', `permission` = NULL, `color` = NULL, `parent_id` = 53, `icon` = 'linklist', `component` = 'views/monitor/zipkin/index', `sort` = 1, `create_time` = '2019-04-26 02:37:39', `modify_time` = '2019-04-26 03:08:06', `del_flag` = '0' WHERE `id` = 54;
