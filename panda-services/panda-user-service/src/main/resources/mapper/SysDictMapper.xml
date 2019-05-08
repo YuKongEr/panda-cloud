@@ -15,11 +15,11 @@
             <result property="createTime" column="create_time"/>
             <result property="modifyTime" column="modify_time"/>
     </resultMap>
-    <select id="pageByQuery" resultMap="SysDictMapperMap">
-      select * from sys_dict
+
+    <sql id="where_cause">
         <where >
             <if test="id != '' and id != null" >
-               and id = #{id}
+                and id = #{id}
             </if>
             <if test="value != '' and value != null">
                 and  value = #{value}
@@ -37,6 +37,18 @@
                 and  del_flag = #{delFlag}
             </if>
         </where>
+    </sql>
+    <select id="pageByQuery" resultMap="SysDictMapperMap">
+      select * from sys_dict <include refid="where_cause"/>
+        order by  create_time desc
     </select>
 
+
+    <select id="countByQuery" resultType="java.lang.Integer">
+        select
+        count(1)
+        from
+        sys_dict
+        <include refid="where_cause"/>
+    </select>
 </mapper>

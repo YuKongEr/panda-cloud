@@ -1,6 +1,7 @@
 package com.yukong.panda.common.base.mapper;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 /**
  * @author yukong
@@ -14,5 +15,12 @@ public interface BaseMapper<T> extends com.baomidou.mybatisplus.core.mapper.Base
      * @param query 分页查询条件
      * @return 分页查询结果
      */
-    IPage<T> pageByQuery(IPage<T> query);
+    IPage<T> pageByQuery(Page<T> query);
+
+    /**
+     * 分页查询总数
+     * @param query 分页查询条件
+     * @return 分页查询总数
+     */
+    Integer countByQuery(IPage<T> query);
 }

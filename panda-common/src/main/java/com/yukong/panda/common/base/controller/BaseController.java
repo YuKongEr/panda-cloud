@@ -1,6 +1,7 @@
 package com.yukong.panda.common.base.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yukong.panda.common.base.service.BaseService;
 import com.yukong.panda.common.util.ApiResult;
 import io.swagger.annotations.ApiOperation;
@@ -19,7 +20,7 @@ import java.util.HashMap;
  * T:  查询实体类
  * P:  主键类型
  */
-public class BaseController<S extends BaseService<T>,Q extends IPage<T>, T, P extends Serializable> {
+public class BaseController<S extends BaseService<T>,Q extends Page<T>, T, P extends Serializable> {
 
     @Autowired
     protected S baseService;

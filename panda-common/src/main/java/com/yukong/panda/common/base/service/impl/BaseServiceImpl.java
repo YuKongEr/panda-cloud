@@ -1,6 +1,7 @@
 package com.yukong.panda.common.base.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yukong.panda.common.base.mapper.BaseMapper;
@@ -22,8 +23,12 @@ public class BaseServiceImpl<K extends BaseMapper<T>, T> extends ServiceImpl<K ,
      * @return
      */
     @Override
-    public IPage<T> pageByQuery(IPage<T> query) {
+    public IPage<T> pageByQuery(Page<T> query) {
+      //  Integer total = baseMapper.countByQuery(query);
+       // query.setTotal(total);
         return  baseMapper.pageByQuery(query);
     }
+
+
 
 }

@@ -16,8 +16,7 @@
     <result column="del_flag" jdbcType="CHAR" property="delFlag" />
   </resultMap>
 
-  <select id="pageByQuery" resultType="com.yukong.panda.user.model.entity.SysZuulRoute">
-    select * from sys_zuul_route
+  <sql id="where_cause">
     <where >
       <if test="serviceId != '' and serviceId != null">
         and   `service_id`  like concat('%',#{serviceId},'%')
@@ -26,5 +25,18 @@
         and  del_flag = #{delFlag}
       </if>
     </where>
+  </sql>
+  <select id="pageByQuery" resultType="com.yukong.panda.user.model.entity.SysZuulRoute">
+    select * from sys_zuul_route
+   <include refid="where_cause"/>
+    order by  create_time desc
+  </select>
+
+  <select id="countByQuery" resultType="java.lang.Integer">
+    select
+    count(1)
+    from
+    sys_zuul_route
+    <include refid="where_cause"/>
   </select>
 </mapper>
