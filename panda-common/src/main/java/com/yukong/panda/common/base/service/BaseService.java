@@ -1,6 +1,7 @@
 package com.yukong.panda.common.base.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -14,6 +15,6 @@ public interface BaseService<T> extends IService<T> {
      * @param query
      * @return
      */
-    IPage<T> pageByQuery(IPage<T> query);
+    IPage<T> pageByQuery(Page<T> query);
 
 }

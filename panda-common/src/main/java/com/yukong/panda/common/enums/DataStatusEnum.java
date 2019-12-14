@@ -3,7 +3,7 @@ package com.yukong.panda.common.enums;
 /**
  * @author: yukong
  * @date: 2018/10/9 14:35
- * @description: 用户状态枚举
+ * @description: 数据状态枚举
  */
 public enum DataStatusEnum {
 

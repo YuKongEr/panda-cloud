@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yukong.panda.user.mapper.SysQuartzJobMapper">
+  <resultMap id="BaseResultMap" type="com.yukong.panda.user.model.entity.SysQuartzJob">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="cron_expression" jdbcType="VARCHAR" property="cronExpression" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="job_class_name" jdbcType="VARCHAR" property="jobClassName" />
+    <result column="parameter" jdbcType="VARCHAR" property="parameter" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, cron_expression, description, job_class_name, `parameter`, `status`, create_time,
+    create_by, update_time, update_by, del_flag
+  </sql>
+ <sql id="where_cause">
+   <where >
+     <if test="jobClassName != '' and jobClassName != null">
+       and   `job_class_name`  like concat('%',#{jobClassName},'%')
+     </if>
+     <if test="description != '' and description != null">
+       and   `description`  like concat('%',#{description},'%')
+     </if>
+     <if test="delFlag != null">
+       and  del_flag = #{delFlag}
+     </if>
+     <if test="status != null">
+       and  status = #{status}
+     </if>
+   </where>
+ </sql>
+  <select id="pageByQuery" resultType="com.yukong.panda.user.model.entity.SysQuartzJob">
+    select * from sys_quartz_job
+    <include refid="where_cause"/>
+    order by  create_time desc
+  </select>
+
+  <select id="countByQuery" resultType="java.lang.Integer">
+    select
+    count(1)
+    from
+    sys_quartz_job
+    <include refid="where_cause"/>
+  </select>
+</mapper>

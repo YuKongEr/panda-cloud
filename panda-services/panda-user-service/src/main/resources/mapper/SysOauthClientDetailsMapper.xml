@@ -17,8 +17,7 @@
         <result property="autoapprove" column="autoapprove"/>
     </resultMap>
 
-    <select id="pageByQuery" resultMap="sysOauthClientDetailsMap">
-        select * from sys_oauth_client_details
+    <sql id="where_cause">
         <where >
 
             <if test="clientId != null and clientId != ''">
@@ -36,5 +35,18 @@
                 and   scope  like concat('%',#{scope},'%')
             </if>
         </where>
+    </sql>
+
+    <select id="pageByQuery" resultMap="sysOauthClientDetailsMap">
+        select * from sys_oauth_client_details
+        <include refid="where_cause"/>
+    </select>
+
+    <select id="countByQuery" resultType="java.lang.Integer">
+        select
+        count(1)
+        from
+        sys_oauth_client_details
+        <include refid="where_cause"/>
     </select>
 </mapper>
