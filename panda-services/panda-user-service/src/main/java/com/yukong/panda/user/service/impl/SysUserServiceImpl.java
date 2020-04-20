@@ -93,7 +93,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         // 新增用户
         SysUser sysUser = new SysUser();
         BeanUtils.copyProperties(sysUserVo, sysUser);
-        sysUser.setPassword(passwordEncoder.encode(PasswordEncoderEnum.BCRYPT.getValue() + sysUser.getPassword()));
+        sysUser.setPassword(PasswordEncoderEnum.BCRYPT.getValue()  + passwordEncoder.encode(sysUser.getPassword()));
         this.save(sysUser);
         sysUserVo.setUserId(sysUser.getUserId());
         // 角色用户信息维护
